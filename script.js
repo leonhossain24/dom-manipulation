@@ -1,43 +1,50 @@
-/* Task 1 */
-var heading = document.getElementById('heading')
 
+/* Task 1 */
+var heading = document.getElementById('heading');
 console.log(heading.innerText);
 
-heading.innerText = '<h3>Asa Cat!</h3>'
-
-
 /* Task 2 using plain JavaScript */
-//task 2a
-var textBtn = document.getElementById('addText2');
-textBtn.addEventListener('click', function(event){
+// Task 2a
+var textBtn = document.getElementById('textBtn2');
+textBtn.addEventListener('click', function(){
     var task2 = document.getElementById('task2a');
-   
     var paragraph = document.createElement('p');
-     
-    paragraph.innerText = 'Hello World!';
-   
+    paragraph.innerText = "Hello World";
     task2.appendChild(paragraph);
 });
 
-//task 2b
-function changeBGcolor(event)
-{
+// Task 2b
+function changeBGcolor(event){
     var body = document.getElementsByTagName('body')[0];
-    // if(event.target.innerText == 'Red')
-    // {
-    //     body.style.background = 'red';
-    // }
-    // if(event.target.innerText == 'Green')
-    // {
-    //     body.style.background = 'green';
-    // }
-    
-    body.style.backgroundColor = event.target.innerText.toLowerCase();
-    
+    if(event.target.innerText == "Red"){
+        body.style.background='red';
+    }
+    if(event.target.innerText == "Green"){
+        body.style.background='green';
+    }
 }
 
+//Task 2c
 
-
-
+function redirectToGoogle(event){
+    window.location.assign('http://google.com');
+}
 
 /* Task 4 using jQuery */
+
+//Task 4a
+ $('#addText4').click(function(event){
+    var paragraph =$('<p>').text('Hello World')
+    $('#task4a').append(paragraph);
+})
+//Task 4b
+function changeBG(event){
+    var color = event.target.innerText.toLowerCase();
+    $('body').css('background-color', color);
+}
+//task4c
+
+$('#sum').click(function(event){
+    var sum = Number($('#num1').val())+Number ($('#num2').val())
+    $('#answer').text(sum);
+})
